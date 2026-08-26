@@ -90,7 +90,7 @@ export function ProductCard({ p }: { p: Product }) {
         </p>
       </div>
       <div className="product-foot">
-        <b>₹{p.price}</b>
+        <b className="price-tag">₹{p.price}</b>
         <button onClick={addFromCard}>
           <svg aria-hidden="true" viewBox="0 0 24 24">
             <path d="M6.5 8.5h11l1 11h-13l1-11Z" />
