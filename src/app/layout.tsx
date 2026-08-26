@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import {
   Archivo,
-  Lancelot,
+  Notable,
   Noto_Sans_Kannada,
   Philosopher,
   Space_Mono,
@@ -26,8 +26,10 @@ import { StoreProvider } from '@/components/Store';
 import { Header, Footer } from '@/components/Site';
 import { BackTrack } from '@/components/BackTrack';
 
-// “Masakali” from the supplied Designare vault: Philosopher is the visible
-// display voice, Archivo keeps shopping copy crisp, and Lancelot is an accent.
+// From the Designare "desi fonts" vault: Philosopher ("masakali") carries every
+// paragraph and most headings; Archivo keeps shopping copy crisp; Notable
+// ("phool") is reserved for short, punchy poster-caps moments — hero emphasis
+// words, product names, place names — the festive market-stall voice.
 const display = Philosopher({
   subsets: ['latin'],
   weight: ['400', '700'],
@@ -38,7 +40,7 @@ const sans = Archivo({
   weight: ['400', '500', '600', '700'],
   variable: '--sans',
 });
-const accent = Lancelot({
+const accent = Notable({
   subsets: ['latin'],
   weight: '400',
   variable: '--accent',
