@@ -33,8 +33,8 @@ export default function Home(){
   const activeRegion=activePlace?regionForPlace(activePlace):null;
   return <div className="v20-home">
     <section className="v20-hero">
-      <div className="v20-hero-copy"><span className="v20-kicker">ಕರ್ನಾಟಕದ ತಿಂಡಿ ಅಂಗಡಿ · BENGALURU</span><h1>Every snack<br/><em>has an address.</em></h1><p>Regional favourites, familiar memories and a cart that brings Karnataka a little closer to home.</p><div className="v20-actions"><Link className="v20-button" href="/shop">Shop the angdi <span>→</span></Link><a href="#places">Follow the route</a></div></div>
-      <div className="v20-hero-art"><img className="v20-hero-paper" src={asset("/assets/hero-background-small-circle-v3.webp")} alt="Illustrated Karnataka landscape"/><img className="v20-cart" src={asset("/assets/cart.webp")} alt="The Thindi Angdi snack cart"/><span className="v20-seal">ಊರಿಂದ<br/><b>ನಿಮ್ಮ ಮನೆಗೆ</b></span></div>
+      <div className="v20-hero-copy"><span className="v20-kicker red">✦ BENGALURU · SAME-DAY DELIVERY</span><h1>Karnataka&apos;s thindi.<br/><em>Delivered fresh.</em></h1><p>Authentic regional snacks from across Karnataka, handmade and delivered the same day across Bengaluru.</p><div className="v20-actions"><Link className="v20-button" href="/shop">Shop thindi <span>→</span></Link><Link className="v20-button outline" href="/regions">Explore Karnataka</Link></div><p className="v20-hero-note"><i/>Ordered by 5 pm, at your door by tonight.</p></div>
+      <div className="v20-hero-art"><img className="v20-hero-paper" src={asset("/assets/hero-background-small-circle-v3.webp")} alt="Illustrated Karnataka landscape"/><img className="v20-cart" src={asset("/assets/cart-illustration.png")} alt="Illustrated Thindi Angdi snack cart"/><span className="v20-seal">ಹೃದಯದಿಂದ<br/><b>ನಿಮ್ಮ ಮನೆಗೆ</b></span></div>
       <a className="v20-scroll" href="#quick-shop">ಹೊಸ ತಿಂಡಿ ಹುಡುಕಿ ↓</a>
     </section>
 
