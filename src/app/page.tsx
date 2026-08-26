@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ProductCard } from "@/components/Commerce";
-import { products, regions } from "@/data/catalog";
+import { products } from "@/data/catalog";
+import { places, regionForPlace } from "@/data/places";
 import { asset } from "@/lib/paths";
 
-const mapPoints = [{x:42,y:79},{x:49,y:62},{x:36,y:45},{x:60,y:78},{x:55,y:26}];
 const tasteFilters = [
   {label:"ಸಿಹಿ · Sweet",match:(p:(typeof products)[number])=>p.category==="Sweet"},
   {label:"ಖಾರ · Spicy",match:(p:(typeof products)[number])=>p.heat==="Spicy"},
@@ -15,9 +15,17 @@ const tasteFilters = [
 ];
 
 export default function Home(){
-  const[region,setRegion]=useState(0);const[taste,setTaste]=useState(0);
-  const selected=regions[region];
+  const[taste,setTaste]=useState(0);
+  const[active,setActive]=useState<number|null>(null);
   const tasting=useMemo(()=>products.filter(tasteFilters[taste].match).slice(0,4),[taste]);
+  useEffect(()=>{
+    if(active===null)return;
+    const onKey=(e:KeyboardEvent)=>{if(e.key==="Escape")setActive(null)};
+    window.addEventListener("keydown",onKey);
+    return()=>window.removeEventListener("keydown",onKey);
+  },[active]);
+  const activePlace=active===null?null:places[active];
+  const activeRegion=activePlace?regionForPlace(activePlace):null;
   return <div className="v20-home">
     <section className="v20-hero">
       <div className="v20-hero-copy"><span className="v20-kicker">ಕರ್ನಾಟಕದ ತಿಂಡಿ ಅಂಗಡಿ · BENGALURU</span><h1>Every snack<br/><em>has an address.</em></h1><p>Regional favourites, familiar memories and a cart that brings Karnataka a little closer to home.</p><div className="v20-actions"><Link className="v20-button" href="/shop">Shop the angdi <span>→</span></Link><a href="#places">Follow the route</a></div></div>
@@ -29,10 +37,28 @@ export default function Home(){
 
     <section className="v20-proof v20-section"><div className="v20-proof-copy"><span className="v20-kicker">✦ WHY THINDI ANGDI</span><h2>Not just snacks.<br/>A taste of where<br/>they’re from.</h2><p>Every thindi has a place. Every place has its own way of making it. Thindi Angdi brings Karnataka&apos;s regional flavours together in one angdi — while staying rooted in the taste and traditions that made them special.</p><Link className="v20-button red" href="/regions">Explore Karnataka</Link></div><figure className="v20-torn-photo v20-vada-photo"><img src={asset("/assets/why-thindi-angdi-vada.png")} alt="Three crisp vadas served on a banana leaf with curry leaves and onion" loading="lazy"/></figure></section>
 
-    <section className="v20-map-section v20-section" id="places"><header className="v20-heading light"><div><span className="v20-kicker">A CARTOGRAPHY OF TASTE</span><h2>Tap Karnataka.<br/><em>Meet its thindi.</em></h2></div><p>Five places. Five ways into the shelf.</p></header><div className="v20-map-frame">
-      <div className="v20-map-stage"><svg className="v20-map" viewBox="0 0 320 470" role="img" aria-label="Interactive map of Karnataka"><path className="v20-map-shape" d="M93 18 147 39l48-5 25 35 25 18-8 43 35 40-18 45 18 49-24 40 5 52-38 42-22 66-55 25-43-24-45-2-8-52-27-36 13-49-24-54 35-35 5-65 41-35-4-52 37-27Z"/><path className="v20-map-river" d="M117 54c42 54-3 93 46 129s-22 79 33 133"/>{regions.map((r,i)=><g key={r.slug} className={region===i?"active":""}><circle className="v20-pulse" cx={mapPoints[i].x*3.2} cy={mapPoints[i].y*4.7} r="13"/><circle className="v20-pin" cx={mapPoints[i].x*3.2} cy={mapPoints[i].y*4.7} r="6"/></g>)}</svg><div className="v20-map-buttons" aria-label="Choose a Karnataka region">{regions.map((r,i)=><button key={r.slug} className={region===i?"active":""} onClick={()=>setRegion(i)} style={{left:`${mapPoints[i].x}%`,top:`${mapPoints[i].y}%`}}><span>{i+1}</span><b>{r.name}</b></button>)}</div></div>
-      <article className="v20-parchment" key={selected.slug}><span className="v20-stamp">STOP {String(region+1).padStart(2,"0")}</span><small>FROM THIS PART OF KARNATAKA</small><h3>{selected.name}</h3><img src={selected.image} alt="" loading="lazy"/><p>{selected.story}</p><b>{selected.snacks}</b><Link href={`/regions/${selected.slug}`}>Open the field note →</Link></article>
-    </div></section>
+    <section className="v20-map-section v20-section" id="places"><header className="v20-heading light"><div><span className="v20-kicker">A CARTOGRAPHY OF TASTE</span><h2>Tap Karnataka.<br/><em>Meet its thindi.</em></h2></div><p>Ten places. Ten ways into the shelf.</p></header>
+      <div className="v20-map-wrap">
+        <div className="v20-map-stage">
+          <div className={`v20-map-layer${activePlace?" zoomed":""}`} style={activePlace?{transformOrigin:`${activePlace.x}% ${activePlace.y}%`}:undefined}>
+            <img className="v20-map-img" src={asset("/assets/karnataka-map.webp")} alt="Illustrated map of Karnataka marking Bidar, Kalaburagi, Vijayapura, Belagavi, Dharwad, Tumakuru, Mangaluru, Maddur, Mysuru and Bengaluru" loading="lazy" decoding="async"/>
+            <div className="v20-pins" aria-hidden={activePlace?"true":"false"}>
+              {places.map((p,i)=><button key={p.slug} type="button" className={`v20-pin-btn${active===i?" active":""}`} style={{left:`${p.x}%`,top:`${p.y}%`}} onClick={()=>setActive(active===i?null:i)} aria-label={`${p.name} — see its thindi`} aria-pressed={active===i}><span className="v20-pin-ring"/><span className="v20-pin-core"/></button>)}
+            </div>
+          </div>
+        </div>
+        {activePlace&&activeRegion&&<article className="v20-spill" key={activePlace.slug} role="dialog" aria-label={activePlace.name}>
+          <span className="v20-stamp">{String((active??0)+1).padStart(2,"0")}</span>
+          <img src={activeRegion.image} alt="" loading="lazy"/>
+          <h3>{activePlace.name}</h3>
+          <p>{activePlace.blurb}</p>
+          <b>{activeRegion.snacks}</b>
+          <Link href={`/regions/${activeRegion.slug}`}>See the {activeRegion.name} shelf →</Link>
+        </article>}
+        {activePlace&&<button type="button" className="v20-spill-close" onClick={()=>setActive(null)} aria-label="Close">×</button>}
+        <p className="v20-map-hint">Tap a place on the map to open it.</p>
+      </div>
+    </section>
 
     <section className="v20-section v20-taste"><header className="v20-heading"><div><span className="v20-kicker">NEW HERE?</span><h2>Choose by craving.</h2></div><p>No map needed. Start with the taste you want.</p></header><div className="v20-tabs" role="tablist" aria-label="Shop by taste">{tasteFilters.map((t,i)=><button role="tab" aria-selected={taste===i} className={taste===i?"active":""} onClick={()=>setTaste(i)} key={t.label}>{t.label}</button>)}</div><div className="v20-shelf taste-shelf">{tasting.map(p=><ProductCard key={p.id} p={p}/>)}</div></section>
 
