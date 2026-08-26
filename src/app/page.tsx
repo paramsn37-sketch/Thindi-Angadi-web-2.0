@@ -39,7 +39,7 @@ export default function Home(){
 
     <section className="v20-map-section v20-section" id="places"><header className="v20-heading light"><div><span className="v20-kicker">A CARTOGRAPHY OF TASTE</span><h2>Tap Karnataka.<br/><em>Meet its thindi.</em></h2></div><p>Ten places. Ten ways into the shelf.</p></header>
       <div className="v20-map-wrap">
-        <div className="v20-map-stage">
+        <div className="v20-map-stage" onClick={()=>{if(active!==null)setActive(null)}} style={active!==null?{cursor:"pointer"}:undefined}>
           <div className={`v20-map-layer${activePlace?" zoomed":""}`} style={activePlace?{transformOrigin:`${activePlace.x}% ${activePlace.y}%`}:undefined}>
             <img className="v20-map-img" src={asset("/assets/karnataka-map.webp")} alt="Illustrated map of Karnataka marking Bidar, Kalaburagi, Vijayapura, Belagavi, Dharwad, Tumakuru, Mangaluru, Maddur, Mysuru and Bengaluru" loading="lazy" decoding="async"/>
             <div className="v20-pins" aria-hidden={activePlace?"true":"false"}>
