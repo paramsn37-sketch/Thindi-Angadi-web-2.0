@@ -15,7 +15,7 @@
 .region-detail>header{max-width:1280px;min-height:430px;height:430px;margin-top:28px;grid-template-columns:54% 46%;grid-template-rows:minmax(0,1fr);border-radius:18px}
 .region-detail>header>img,.region-detail>header>div{min-height:0}
 .region-detail>header>div{padding:34px 46px;align-self:stretch;display:flex;min-width:0;flex-direction:column;justify-content:center;overflow:hidden}
-.region-detail h1{font-size:43px;margin:11px 0}
+.region-detail h1{font-size:36px;margin:11px 0}
 .region-detail header p{font-size:13px;line-height:1.55;margin:5px 0;max-width:470px}
 .region-route{margin-top:18px}
 .region-notes{max-width:1060px;margin:-24px auto 55px}
@@ -23,4 +23,4 @@
 .region-notes h2{font-size:23px;margin:9px 0}
 .region-notes p{font-size:13px}
 
-@media(max-width:1000px){.interactive-cart{left:21%;top:24%;width:58%;height:58%}.region-card-v2.expanded{height:auto}.region-expanded-copy{padding:28px 22px}.region-detail>header{height:auto;min-height:0;margin-top:0;grid-template-columns:1fr}.region-detail>header>img{height:300px}.region-detail>header>div{padding:34px 24px}.region-detail h1{font-size:42px}}
+@media(max-width:1000px){.interactive-cart{left:21%;top:24%;width:58%;height:58%}.region-card-v2.expanded{height:auto}.region-expanded-copy{padding:28px 22px}.region-detail>header{height:auto;min-height:0;margin-top:0;grid-template-columns:1fr}.region-detail>header>img{height:300px}.region-detail>header>div{padding:34px 24px}.region-detail h1{font-size:32px}}
