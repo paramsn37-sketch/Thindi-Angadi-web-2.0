@@ -13,6 +13,11 @@ const tasteFilters = [
   {label:"ಕುರುಕು · Savoury",match:(p:(typeof products)[number])=>p.category==="Savoury"},
   {label:"ಚಹಾ ಜೊತೆ · Tea-time",match:(p:(typeof products)[number])=>["Bakery","Mixture"].includes(p.category)},
 ];
+const reviews = [
+  {name:"Ananya R.",place:"Indiranagar",product:"Maddur Vade",quote:"The Maddur Vade tasted exactly like the ones from the highway stalls near my hometown. Genuinely surprised."},
+  {name:"Karthik S.",place:"Jayanagar",product:"Thindi Box",quote:"Ordered the Thindi Box on a whim. My whole family fought over the Nippattu by evening."},
+  {name:"Meera V.",place:"HSR Layout",product:"Kodubale",quote:"Ordered at 3, it was at my door by 7. Still warm-fresh, not stale like the usual packaged stuff."},
+];
 
 export default function Home(){
   const[taste,setTaste]=useState(0);
@@ -61,6 +66,8 @@ export default function Home(){
     </section>
 
     <section className="v20-section v20-taste"><header className="v20-heading"><div><span className="v20-kicker">NEW HERE?</span><h2>Choose by craving.</h2></div><p>No map needed. Start with the taste you want.</p></header><div className="v20-tabs" role="tablist" aria-label="Shop by taste">{tasteFilters.map((t,i)=><button role="tab" aria-selected={taste===i} className={taste===i?"active":""} onClick={()=>setTaste(i)} key={t.label}>{t.label}</button>)}</div><div className="v20-shelf taste-shelf">{tasting.map(p=><ProductCard key={p.id} p={p}/>)}</div></section>
+
+    <section className="v20-section v20-reviews"><header className="v20-heading"><div><span className="v20-kicker red">✦ ALREADY SNACKING</span><h2>Bengaluru is already snacking.</h2></div></header><div className="v20-review-grid">{reviews.map(r=><article className="v20-review-card" key={r.name}><span className="v20-review-stars" aria-label="5 out of 5 stars">★★★★★</span><p>{r.quote}</p><div className="v20-review-meta"><b>{r.name}</b><span>{r.place} · {r.product}</span></div></article>)}</div></section>
 
     <section className="v20-story v20-section"><div><span className="v20-kicker">THE THINDI ANGDI STORY</span><h2>More than snacks.<br/><em>It’s our Karnataka.</em></h2><p>Places, kitchens and small food memories—the longer route behind the shelf.</p><Link className="v20-button gold" href="/story">Explore our story →</Link></div><div className="v20-story-collage"><img src={asset("/assets/story-kitchen-teaching.webp")} alt="Food knowledge shared in a kitchen" loading="lazy"/><img src={asset("/assets/story-journey-v2.webp")} alt="A route through Karnataka" loading="lazy"/><img src={asset("/assets/story-stone-grinding.webp")} alt="Traditional grinding by hand" loading="lazy"/></div></section>
   </div>
