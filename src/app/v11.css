@@ -1,0 +1,27 @@
+/* Stable shared header: no logo or control can overlap route content. */
+html,body{overflow-x:clip}
+.header{position:relative;top:auto;left:auto;right:auto;height:112px;min-height:112px;padding:6px clamp(28px,3vw,44px);grid-template-columns:150px minmax(0,1fr) 174px;background:rgba(250,246,239,.98)}
+.brand-round,.brand{width:112px;height:100px;margin:0;align-self:center;overflow:hidden}
+.brand-round img,.brand img{width:112px;height:112px;object-fit:contain}
+.header nav{padding:0;gap:10px;min-width:0}
+.header nav a{white-space:nowrap;padding:10px clamp(10px,1vw,15px)}
+.header .actions{padding:0;transform:translateY(-6px);gap:8px}
+.actions .icon,.actions .bag-icon{width:46px;height:46px;min-width:46px;display:grid;place-items:center;border:0;background:transparent;color:var(--navy)}
+.actions svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.actions .bag-icon{position:relative}
+.actions .bag-icon svg{width:25px;height:25px}
+.actions .bag-icon span{position:absolute;right:-1px;top:-3px;width:23px;height:23px;font-size:10px;background:var(--yellow);color:var(--navy)}
+.actions .hamburger{display:none}
+
+/* The scene can reach the page edges while its yellow sun remains circular. */
+.hero-exact{padding-top:8px}
+.hero-bg-layer{object-fit:cover}
+
+/* Product action controls retain their own width and never stack over each other. */
+.pdp-copy>.button,.pdp-copy>.field{width:auto;min-height:51px;display:inline-flex;align-items:center;justify-content:center;vertical-align:top;margin:0 8px 18px 0}
+.pdp-copy>.field{padding:0 22px}
+.pdp{padding-top:20px}
+
+@media(max-width:1120px) and (min-width:1001px){.header{grid-template-columns:125px minmax(0,1fr) 150px;padding-inline:24px}.header nav{gap:6px}.header nav a{padding-inline:9px;font-size:11px}.actions .icon,.actions .bag-icon{width:40px;min-width:40px}}
+@media(max-width:1000px){.header{position:sticky;height:78px;min-height:78px;grid-template-columns:1fr auto;padding:4px 18px}.brand-round,.brand{width:82px;height:70px}.brand-round img,.brand img{width:82px;height:82px}.header .actions{transform:none}.actions .icon,.actions .bag-icon{width:42px;height:42px;min-width:42px}.actions .hamburger{display:grid}.hero-exact{padding-top:32px}.pdp{padding-top:10px}}
+@media(max-width:560px){.actions{gap:2px}.actions .icon,.actions .bag-icon{width:39px;height:39px;min-width:39px}.actions svg{width:21px;height:21px}.actions .bag-icon svg{width:23px;height:23px}.actions .bag-icon span{width:20px;height:20px;right:-2px;top:-1px}.pdp-copy>.button,.pdp-copy>.field{width:100%;margin-right:0}}

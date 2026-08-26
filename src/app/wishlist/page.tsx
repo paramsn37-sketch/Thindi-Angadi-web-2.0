@@ -1,0 +1,3 @@
+'use client'
+import{products}from'@/data/catalog';import{gifts}from'@/data/gifts';import{ProductCard}from'@/components/Commerce';import{useStore}from'@/components/Store';import Link from'next/link'
+export default function Wishlist(){const{wishlist}=useStore();const list=[...products,...gifts].filter(p=>wishlist.includes(p.id));return <div className="page"><header className="page-hero"><span className="eyebrow">SAVED FOR LATER</span><h1>Your wishlist</h1></header>{list.length?<div className="product-grid">{list.map(p=><ProductCard key={p.id} p={p}/>)}</div>:<div className="empty"><h3>No saved snacks yet.</h3><Link className="button" href="/shop">Explore the shelf</Link></div>}</div>}

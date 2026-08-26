@@ -1,0 +1,1 @@
+import Link from'next/link';export default function NotFound(){return <div className="error-state"><span className="eyebrow">404 — OFF THE ROUTE</span><h1>This cart took a wrong turn.</h1><p>The page you are looking for is not in the angdi.</p><Link className="button" href="/">Return home</Link></div>}

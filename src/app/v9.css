@@ -1,0 +1,7 @@
+.product-foot{display:grid;grid-template-columns:1fr;align-items:stretch;gap:10px;border-top:0;padding-top:8px}
+.product-foot>b{font-size:15px;line-height:1.2}
+.product-foot button{width:100%;min-height:43px;border:1px solid #143858;border-radius:7px;background:var(--navy);color:#fff6e7;text-transform:none;font-size:12px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:7px;box-shadow:0 2px 0 rgba(7,29,53,.18);transition:background .2s,transform .2s,box-shadow .2s}
+.product-foot button svg{width:17px;height:17px;fill:none;stroke:var(--yellow);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.product-foot button:hover{background:#103454;transform:translateY(-1px);box-shadow:0 4px 10px rgba(7,29,53,.16)}
+.product-foot button:active{transform:translateY(0)}
+@media(max-width:900px){.product-foot{align-items:stretch;gap:8px}.product-foot button{min-height:41px}}

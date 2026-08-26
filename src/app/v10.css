@@ -1,0 +1,15 @@
+/* Header controls sit closer to the visual top line, matching the reference. */
+@media(min-width:1001px){.header nav,.header .actions{transform:translateY(-8px)}}
+
+/* Feather the illustrated scene into the page instead of exposing its image bounds. */
+.hero-bg-layer{inset:-2% -19%;width:138%;height:104%;object-fit:fill;mix-blend-mode:multiply;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 17%,#000 83%,transparent 100%),linear-gradient(0deg,transparent 0,#000 11%,#000 89%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 17%,#000 83%,transparent 100%),linear-gradient(0deg,transparent 0,#000 11%,#000 89%,transparent 100%);mask-composite:intersect}
+.hero-layered-scene:after{content:"";position:absolute;z-index:1;inset:-2% -19%;pointer-events:none;background:linear-gradient(90deg,var(--cream) 0,transparent 17%,transparent 83%,var(--cream) 100%),linear-gradient(0deg,var(--cream) 0,transparent 11%,transparent 89%,var(--cream) 100%)}
+.hero-live-route,.interactive-cart,.live-label{z-index:3}
+
+/* Route is raised and the progress cart now travels vertically as well as horizontally. */
+.journey-four-track>svg{inset:-3px 0 auto}
+.four-cart-marker{width:38px;transform:translate(-50%,-72%);transition:left .65s cubic-bezier(.2,.8,.2,1),top .65s cubic-bezier(.2,.8,.2,1),transform .35s;filter:drop-shadow(0 4px 4px #0006)}
+.four-stage i{top:137px}
+.journey-four-next{top:108px}
+@media(max-width:900px){.hero-layered-scene:after{opacity:.78}.four-stage i{top:137px}.journey-four-next{top:108px}}
+@media(prefers-reduced-motion:reduce){.four-cart-marker{transition:none}}

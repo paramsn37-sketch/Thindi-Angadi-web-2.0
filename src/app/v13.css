@@ -1,0 +1,11 @@
+/* Full landscape coverage with a modestly larger, right-shifted sun and cart. */
+.hero-bg-layer{object-fit:cover;object-position:55% center;transform:scale(1.045);transform-origin:58% 50%}
+.interactive-cart{left:27%;top:21%;width:58%;height:63%}
+
+/* All catalogue photography is framed identically regardless of source asset. */
+.product-img{aspect-ratio:1/1;min-height:0;border-radius:12px}
+.product-img img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center}
+
+/* Use the complete company logo in the footer. */
+footer .footer-logo{width:150px;height:150px;object-fit:contain;object-position:center;filter:none}
+@media(max-width:1000px){.hero-bg-layer{object-position:56% center;transform:scale(1.03)}.interactive-cart{left:25%;top:23%;width:61%;height:60%}}

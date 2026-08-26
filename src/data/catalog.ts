@@ -1,0 +1,347 @@
+import { asset } from "@/lib/paths";
+export type Product = {
+  id: string;
+  slug: string;
+  name: string;
+  region: string;
+  description: string;
+  price: number;
+  image: string;
+  badge?: string;
+  category: string;
+  heat: "Mild" | "Medium" | "Spicy";
+  inStock: boolean;
+};
+const base = [
+  [
+    "chakli",
+    "Chakli",
+    "Coastal Karnataka",
+    "A familiar spiral savoury for the tea-time dabba.",
+    150,
+    "/assets/product-chakli-branded.webp",
+    "Savoury",
+    "Medium",
+    "Bestseller",
+  ],
+  [
+    "pak",
+    "Mysore Pak",
+    "Mysuru Region",
+    "A celebrated sweet associated with Mysuru.",
+    220,
+    "/assets/product-mysore-pak-branded.webp",
+    "Sweet",
+    "Mild",
+    "Traditional",
+  ],
+  [
+    "avalakki",
+    "Avalakki Mixture",
+    "Coastal Karnataka",
+    "A crisp flattened-rice mixture with peanuts.",
+    140,
+    "/assets/product-avalakki-branded.webp",
+    "Mixture",
+    "Spicy",
+    "New",
+  ],
+  [
+    "banana",
+    "Banana Chips",
+    "Coastal Karnataka",
+    "Thin, crisp chips for the coastal shelf.",
+    160,
+    "/assets/product-banana-branded.webp",
+    "Savoury",
+    "Mild",
+    "Bestseller",
+  ],
+  [
+    "chikki",
+    "Shenga Chikki",
+    "North Karnataka",
+    "Peanut brittle with a clean, satisfying snap.",
+    120,
+    "/assets/product-chikki-branded.webp",
+    "Sweet",
+    "Mild",
+    "",
+  ],
+  [
+    "buns",
+    "Mangalore Buns",
+    "Coastal Karnataka",
+    "A packaged interpretation for this frontend preview.",
+    180,
+    "/assets/product-buns-branded.webp",
+    "Bakery",
+    "Mild",
+    "",
+  ],
+  [
+    "nippattu",
+    "Nippattu",
+    "Bengaluru",
+    "A crisp rice-flour savoury with a peppery finish.",
+    135,
+    "/assets/product-nippattu-v2.webp",
+    "Savoury",
+    "Spicy",
+    "",
+  ],
+  [
+    "kodubale",
+    "Kodubale",
+    "Mysuru Region",
+    "Ring-shaped savouries with a firm crunch.",
+    145,
+    "/assets/product-kodubale-v2.webp",
+    "Savoury",
+    "Medium",
+    "",
+  ],
+  [
+    "ragi",
+    "Ragi Murukku",
+    "North Karnataka",
+    "A working catalogue entry awaiting final recipe data.",
+    155,
+    "/assets/product-ragi-murukku-v2.webp",
+    "Savoury",
+    "Medium",
+    "New",
+  ],
+  [
+    "karasev",
+    "Peri-Peri Ragi Puffs",
+    "Greater Bengaluru",
+    "A working concept pairing Karnataka ragi with an urban peri-peri flavour direction.",
+    130,
+    "/assets/product-peri-peri-ragi-v2.webp",
+    "Savoury",
+    "Spicy",
+    "",
+  ],
+  [
+    "mixture",
+    "Kadlebele Mixture",
+    "North Karnataka",
+    "A lively tea-time mixture with lentil crunch.",
+    145,
+    "/assets/product-kadlebele-mixture-v2.webp",
+    "Mixture",
+    "Spicy",
+    "",
+  ],
+  [
+    "boondi",
+    "Filter Coffee Dark Chocolate Bark",
+    "Greater Bengaluru",
+    "A working concept combining dark chocolate with a local filter-coffee flavour direction.",
+    125,
+    "/assets/product-coffee-chocolate-v2.webp",
+    "Sweet",
+    "Mild",
+    "",
+  ],
+  [
+    "ladoo",
+    "Coconut Ladoo",
+    "Coastal Karnataka",
+    "A sweet working entry for the final catalogue.",
+    190,
+    "/assets/product-ladoo-branded.webp",
+    "Sweet",
+    "Mild",
+    "",
+  ],
+  [
+    "holige",
+    "Bele Holige",
+    "Mysuru Region",
+    "A frontend catalogue example pending pack validation.",
+    210,
+    "/assets/product-holige-branded.webp",
+    "Sweet",
+    "Mild",
+    "Traditional",
+  ],
+  [
+    "biscuit",
+    "Khara Biscuit",
+    "Bengaluru",
+    "A savoury bakery favourite for the tea tray.",
+    170,
+    "/assets/product-khara-biscuit-v2.webp",
+    "Bakery",
+    "Medium",
+    "",
+  ],
+  [
+    "chowchow",
+    "Chow Chow Bath Mix",
+    "Mysuru Region",
+    "A configurable pantry entry awaiting final format.",
+    185,
+    "/assets/product-chow-chow-bath-v2.webp",
+    "Mixture",
+    "Medium",
+    "",
+  ],
+  [
+    "thin-sev",
+    "Ghee Roast Makhana",
+    "Greater Bengaluru",
+    "A working concept for foxnuts with ghee-roast and coastal masala flavours.",
+    125,
+    "/assets/product-ghee-makhana-v2.webp",
+    "Savoury",
+    "Spicy",
+    "",
+  ],
+  [
+    "peanut",
+    "Spicy Peanuts",
+    "North Karnataka",
+    "Crunchy coated peanuts in a working catalogue pack.",
+    130,
+    "/assets/product-spicy-peanuts-v2.webp",
+    "Savoury",
+    "Spicy",
+    "",
+  ],
+] as const;
+export const products: Product[] = base.map((x) => ({
+  id: String(x[0]),
+  slug: String(x[0]),
+  name: String(x[1]),
+  region: String(x[2]),
+  description: String(x[3]),
+  price: Number(x[4]),
+  image: asset(String(x[5])),
+  category: String(x[6]),
+  heat: x[7] as Product["heat"],
+  badge: x[8] ? String(x[8]) : undefined,
+  inStock: true,
+}));
+const regionBase = [
+  {
+    slug: "coastal-karnataka",
+    name: "Coastal Karnataka",
+    description: "Sea breeze, spice and tea-time favourites.",
+    image: "/assets/region-coastal-photo-v4.webp",
+    snacks: "Banana Chips · Chakli · Mangalore Buns",
+    story:
+      "Along the coast, coconut, rice and everyday tea-time rituals shape a distinctive snack table.",
+  },
+  {
+    slug: "mysuru",
+    name: "Mysuru Region",
+    description: "Old favourites from a region that knows its sweets.",
+    image: "/assets/region-mysuru-photo-clean.webp",
+    snacks: "Mysore Pak · Kodubale · Bele Holige",
+    story:
+      "Around Mysuru, palace-city memory sits beside home kitchens, bakeries and busy market shelves.",
+  },
+  {
+    slug: "malnad",
+    name: "Malnad Region",
+    description: "Rainy hills, warm kitchens and deeply local recipes.",
+    image: "/assets/region-malnad-photo-v4.webp",
+    snacks: "Jackfruit Chips · Kadubu · Seasonal Savouries",
+    story:
+      "In the rain-rich hills, food follows weather, harvest and the warmth of the kitchen.",
+  },
+  {
+    slug: "greater-bengaluru",
+    name: "Greater Bengaluru",
+    description: "Global ideas, local memory and fast-moving city tastes.",
+    image: "/assets/region-greater-bengaluru-final.webp",
+    snacks:
+      "Filter Coffee Dark Chocolate Bark · Peri-Peri Ragi Puffs · Ghee Roast Makhana",
+    story:
+      "Greater Bengaluru brings together global influence, experimental flavour crossovers and nostalgia for familiar Karnataka tastes. The working direction is convenient urban snacking that can balance modern formats with recognisable local flavours.",
+    flavorProfile:
+      "Global, experimental, fusion, health-conscious and nostalgic.",
+    coreIngredients:
+      "Oats, quinoa, premium nuts, dark chocolate, cheese and localised spice fusions.",
+    snackProfile:
+      "Convenient formats, evolving clean-label expectations and playful flavour crossovers for urban consumers.",
+  },
+  {
+    slug: "north-karnataka",
+    name: "North Karnataka",
+    description: "Robust snacks, grains, spice and unmistakable character.",
+    image: "/assets/region-north-karnataka-photo.webp",
+    snacks: "Ragi Murukku · Chikki · Kadlebele Mixture",
+    story:
+      "Dry landscapes and deeply practical food traditions give this region its direct, memorable character.",
+  },
+];
+export const regions = regionBase.map((region) => ({
+  ...region,
+  image: asset(region.image),
+}));
+export const stages = [
+  [
+    "The Beginning",
+    "Before there was a cart, there was Karnataka — our home, where every few kilometres can bring a new flavour.",
+    "Karnataka",
+  ],
+  [
+    "Different Places",
+    "From the coast to Mysuru, from Malnad rains to the drier north — every place has its own thindi.",
+    "Place → Taste",
+  ],
+  [
+    "Local Kitchens",
+    "The snacks we love begin in homes, small kitchens, bakeries, workshops and local shops.",
+    "Home recipes",
+  ],
+  [
+    "Real People",
+    "Behind every batch is somebody who knows the recipe by doing.",
+    "Made by hands that care",
+  ],
+  [
+    "Regional Favourites",
+    "Districts, towns and communities have built food identities of their own.",
+    "A snack has an address",
+  ],
+  [
+    "From Their Roots",
+    "The Thindi Angdi keeps origin at the centre of how you discover and shop.",
+    "Origin matters",
+  ],
+  [
+    "Our Selection",
+    "We look for familiar taste, dependable preparation and care.",
+    "Chosen with care",
+  ],
+  [
+    "Carefully Packed",
+    "An old recipe deserves a modern journey: cleanly packed, clearly labelled and handled with care.",
+    "Packed for the journey",
+  ],
+  [
+    "Bengaluru Bound",
+    "With Karnataka in the cart, the route turns toward Bengaluru.",
+    "Karnataka → Bengaluru",
+  ],
+  [
+    "The Thindi Angdi",
+    "Coast, hills, towns, homes and makers meet here. One angdi, many places.",
+    "One angdi, many places",
+  ],
+  [
+    "Choose Your Thindi",
+    "Browse by region, find a favourite and discover something new.",
+    "From our cart to yours",
+  ],
+  [
+    "Karnataka, Delivered",
+    "The journey is complete only when the packet is opened at home.",
+    "Your doorstep",
+  ],
+] as const;
