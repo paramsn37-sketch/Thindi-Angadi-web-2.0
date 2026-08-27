@@ -55,7 +55,7 @@ export default function Home(){
         </div>
         {activePlace&&activeRegion&&<article className="v20-spill" key={activePlace.slug} role="dialog" aria-label={activePlace.name}>
           <span className="v20-stamp">{String((active??0)+1).padStart(2,"0")}</span>
-          <img src={activeRegion.image} alt="" loading="lazy"/>
+          <img src={activePlace.image} alt="" loading="lazy"/>
           <h3>{activePlace.name}</h3>
           <p>{activePlace.blurb}</p>
           <b>{activeRegion.snacks}</b>

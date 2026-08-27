@@ -1,4 +1,5 @@
 import { regions } from "./catalog";
+import { asset } from "@/lib/paths";
 
 export type Place = {
   slug: string;
@@ -7,6 +8,7 @@ export type Place = {
   y: number;
   blurb: string;
   regionSlug: string;
+  image: string;
 };
 
 export const places: Place[] = [
@@ -17,6 +19,7 @@ export const places: Place[] = [
     y: 11.8,
     blurb: "Deccan forts and a plains kitchen where grain and ghee do the talking.",
     regionSlug: "north-karnataka",
+    image: asset("/assets/place-bidar.webp"),
   },
   {
     slug: "kalaburagi",
@@ -25,6 +28,7 @@ export const places: Place[] = [
     y: 26,
     blurb: "A dry, wide-open district with snacks built for long, busy days.",
     regionSlug: "north-karnataka",
+    image: asset("/assets/place-kalaburagi.webp"),
   },
   {
     slug: "vijayapura",
@@ -33,6 +37,7 @@ export const places: Place[] = [
     y: 31.8,
     blurb: "Domes on the skyline, millets and jowar on the everyday table.",
     regionSlug: "north-karnataka",
+    image: asset("/assets/place-vijayapura.webp"),
   },
   {
     slug: "belagavi",
@@ -41,6 +46,7 @@ export const places: Place[] = [
     y: 40.2,
     blurb: "A border town where three food cultures share one snack shelf.",
     regionSlug: "north-karnataka",
+    image: asset("/assets/place-belagavi.webp"),
   },
   {
     slug: "dharwad",
@@ -49,6 +55,7 @@ export const places: Place[] = [
     y: 47.6,
     blurb: "A university town known for keeping its sweet-and-savoury balance just right.",
     regionSlug: "north-karnataka",
+    image: asset("/assets/place-dharwad.webp"),
   },
   {
     slug: "mangaluru",
@@ -57,6 +64,7 @@ export const places: Place[] = [
     y: 68.2,
     blurb: "Coconut, curry leaf and a coastline that shapes every tea-time bite.",
     regionSlug: "coastal-karnataka",
+    image: asset("/assets/place-mangaluru.webp"),
   },
   {
     slug: "tumakuru",
@@ -65,6 +73,7 @@ export const places: Place[] = [
     y: 62.4,
     blurb: "The quiet plains stop between the coast, the hills and the capital.",
     regionSlug: "greater-bengaluru",
+    image: asset("/assets/place-tumakuru.webp"),
   },
   {
     slug: "maddur",
@@ -73,6 +82,7 @@ export const places: Place[] = [
     y: 69.2,
     blurb: "The highway halt every Bengaluru–Mysuru traveller stops for, by habit.",
     regionSlug: "greater-bengaluru",
+    image: asset("/assets/place-maddur.webp"),
   },
   {
     slug: "mysuru",
@@ -81,6 +91,7 @@ export const places: Place[] = [
     y: 73.4,
     blurb: "Palace-city memory sits beside home kitchens and busy market shelves.",
     regionSlug: "mysuru",
+    image: asset("/assets/place-mysuru.webp"),
   },
   {
     slug: "bengaluru",
@@ -89,6 +100,7 @@ export const places: Place[] = [
     y: 76.6,
     blurb: "Where every regional thindi in Karnataka finally finds a shelf.",
     regionSlug: "greater-bengaluru",
+    image: asset("/assets/place-bengaluru.webp"),
   },
 ];
 
