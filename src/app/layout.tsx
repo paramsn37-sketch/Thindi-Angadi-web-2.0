@@ -25,6 +25,7 @@ import './v20.css';
 import { StoreProvider } from '@/components/Store';
 import { Header, Footer } from '@/components/Site';
 import { BackTrack } from '@/components/BackTrack';
+import { RouteTracker } from '@/components/RouteTracker';
 
 // From the Designare "desi fonts" vault: Philosopher ("masakali") carries every
 // paragraph and most headings; Archivo keeps shopping copy crisp; Notable
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <StoreProvider>
           <Header />
           <BackTrack />
+          <RouteTracker />
           <main>{children}</main>
           <Footer />
         </StoreProvider>
