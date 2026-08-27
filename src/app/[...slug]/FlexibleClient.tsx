@@ -25,7 +25,7 @@ const pages: Record<string, [string, string, string]> = {
   stories: [
     "FIELD NOTES",
     "Stories from the route.",
-    "Places, snacks and the journey behind the Angdi.",
+    "Places, snacks and the journey behind the Angadi.",
   ],
   contact: [
     "GET IN TOUCH",
@@ -43,7 +43,7 @@ const pages: Record<string, [string, string, string]> = {
     "The launch market is Bengaluru. Exact service areas and policies await business approval.",
   ],
   account: [
-    "YOUR ANGDI",
+    "YOUR ANGADI",
     "Welcome back.",
     "Your addresses, orders and saved snacks will live here.",
   ],
@@ -122,7 +122,7 @@ export default function Flexible() {
               <i />
               <span>From this place</span>
               <b>→</b>
-              <span>To the Angdi</span>
+              <span>To the Angadi</span>
             </div>
           </div>
         </header>
@@ -188,7 +188,7 @@ export default function Flexible() {
     );
   }
   const page = pages[key] || [
-    "ANGDI STORY",
+    "ANGADI STORY",
     "A page from the route.",
     "This editorial detail page is ready for approved business content.",
   ];
@@ -258,7 +258,7 @@ export default function Flexible() {
             <b>✦</b>
             <i />
           </div>
-          <p className="field-note-meta">KARNATAKA · ORIGIN · THE ANGDI</p>
+          <p className="field-note-meta">KARNATAKA · ORIGIN · THE ANGADI</p>
           <h2>Why a snack should keep its place.</h2>
           <p>
             Before the shelf, there is a landscape, a kitchen and a way of

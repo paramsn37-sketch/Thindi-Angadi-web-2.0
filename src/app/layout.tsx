@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import {
+  Abril_Fatface,
   Archivo,
-  Notable,
   Noto_Sans_Kannada,
   Philosopher,
   Space_Mono,
@@ -26,10 +26,10 @@ import { StoreProvider } from '@/components/Store';
 import { Header, Footer } from '@/components/Site';
 import { BackTrack } from '@/components/BackTrack';
 
-// From the Designare "desi fonts" vault: Philosopher ("masakali") carries every
-// paragraph and most headings; Archivo keeps shopping copy crisp; Notable
-// ("phool") is reserved for short, punchy poster-caps moments — hero emphasis
-// words, product names, place names — the festive market-stall voice.
+// Philosopher carries every paragraph and most headings; Archivo keeps
+// shopping copy crisp; Abril Fatface is reserved for short, warm display
+// moments — hero emphasis words, product names, place names — an "Archivo +
+// Abril" pairing, in place of the earlier, louder Notable accent.
 const display = Philosopher({
   subsets: ['latin'],
   weight: ['400', '700'],
@@ -40,7 +40,7 @@ const sans = Archivo({
   weight: ['400', '500', '600', '700'],
   variable: '--sans',
 });
-const accent = Notable({
+const accent = Abril_Fatface({
   subsets: ['latin'],
   weight: '400',
   variable: '--accent',
@@ -57,9 +57,9 @@ const kannada = Noto_Sans_Kannada({
 });
 
 export const metadata: Metadata = {
-  title: "The Thindi Angdi | Karnataka's Own Snacking",
+  title: "The Thindi Angadi | Karnataka's Own Snacking",
   description:
-    'Discover regional snacks from across Karnataka, their places and stories, brought together for Bengaluru by The Thindi Angdi.',
+    'Discover regional snacks from across Karnataka, their places and stories, brought together for Bengaluru by The Thindi Angadi.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

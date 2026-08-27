@@ -311,7 +311,7 @@ export const stages = [
   ],
   [
     "From Their Roots",
-    "The Thindi Angdi keeps origin at the centre of how you discover and shop.",
+    "The Thindi Angadi keeps origin at the centre of how you discover and shop.",
     "Origin matters",
   ],
   [
@@ -330,9 +330,9 @@ export const stages = [
     "Karnataka → Bengaluru",
   ],
   [
-    "The Thindi Angdi",
-    "Coast, hills, towns, homes and makers meet here. One angdi, many places.",
-    "One angdi, many places",
+    "The Thindi Angadi",
+    "Coast, hills, towns, homes and makers meet here. One angadi, many places.",
+    "One angadi, many places",
   ],
   [
     "Choose Your Thindi",

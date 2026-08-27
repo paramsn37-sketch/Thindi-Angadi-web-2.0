@@ -46,7 +46,7 @@ export function Header() {
     <>
       <header className="header">
         <Link className="brand brand-round" href="/">
-          <img src={asset("/assets/logo-transparent-v2.webp")} alt="The Thindi Angdi" />
+          <img src={asset("/assets/logo-transparent-v2.webp")} alt="The Thindi Angadi" />
         </Link>
         <nav aria-label="Primary">
           <Link href="/shop">Shop</Link>
@@ -142,11 +142,11 @@ export function Footer() {
   return (
     <footer>
       <div>
-        <Link href="/" aria-label="The Thindi Angdi home">
+        <Link href="/" aria-label="The Thindi Angadi home">
           <img
             className="footer-logo"
             src={asset("/assets/logo-transparent-v2.webp")}
-            alt="The Thindi Angdi"
+            alt="The Thindi Angadi"
           />
         </Link>
         <p>From Karnataka&apos;s homes to your doorstep.</p>
@@ -171,7 +171,7 @@ export function Footer() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            alert("Thank you for joining the Angdi.");
+            alert("Thank you for joining the Angadi.");
           }}
         >
           <input
@@ -183,7 +183,7 @@ export function Footer() {
           <button>→</button>
         </form>
       </div>
-      <small>© 2026 The Thindi Angdi. Frontend preview.</small>
+      <small>© 2026 The Thindi Angadi. Frontend preview.</small>
     </footer>
   );
 }
