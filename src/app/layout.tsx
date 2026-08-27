@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import {
-  Abril_Fatface,
   Archivo,
   Noto_Sans_Kannada,
   Philosopher,
@@ -27,9 +26,9 @@ import { Header, Footer } from '@/components/Site';
 import { BackTrack } from '@/components/BackTrack';
 
 // Philosopher carries every paragraph and most headings; Archivo keeps
-// shopping copy crisp; Abril Fatface is reserved for short, warm display
-// moments — hero emphasis words, product names, place names — an "Archivo +
-// Abril" pairing, in place of the earlier, louder Notable accent.
+// shopping copy crisp and, at bold weight, also carries the short display
+// moments — hero emphasis words, product names, place names — a single
+// quiet, composed voice in place of a separate loud display face.
 const display = Philosopher({
   subsets: ['latin'],
   weight: ['400', '700'],
@@ -39,11 +38,6 @@ const sans = Archivo({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--sans',
-});
-const accent = Abril_Fatface({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--accent',
 });
 const mono = Space_Mono({
   subsets: ['latin'],
@@ -69,7 +63,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={[
         display.variable,
         sans.variable,
-        accent.variable,
         mono.variable,
         kannada.variable,
       ].join(' ')}
